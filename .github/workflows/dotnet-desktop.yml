@@ -37,4 +37,7 @@ jobs:
 
       - name: Test
         run: dotnet test CicdDemo.sln --no-build -c Release --verbosity normal
+
+      - name: Build Docker Image
+        run: docker build -t cicddemo-api:${{ github.sha }} -f CicdDemo.Api/Dockerfile .
     
